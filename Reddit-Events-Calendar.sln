@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Web", "EventsCalendar.Web\EventsCalendar.Web.csproj", "{EF400FD4-004F-421F-BB55-2928AD91D46A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Model", "EventsCalendar.Model\EventsCalendar.Model.csproj", "{6B3671A0-8DA7-4F98-93D9-93DC8E0E66E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Repository", "EventsCalendar.Repository\EventsCalendar.Repository.csproj", "{0D990E5A-3DD2-44EE-BB13-025689FE0F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Service", "EventsCalendar.Service\EventsCalendar.Service.csproj", "{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D990E5A-3DD2-44EE-BB13-025689FE0F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D990E5A-3DD2-44EE-BB13-025689FE0F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D990E5A-3DD2-44EE-BB13-025689FE0F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D990E5A-3DD2-44EE-BB13-025689FE0F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B3671A0-8DA7-4F98-93D9-93DC8E0E66E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3671A0-8DA7-4F98-93D9-93DC8E0E66E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3671A0-8DA7-4F98-93D9-93DC8E0E66E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3671A0-8DA7-4F98-93D9-93DC8E0E66E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
