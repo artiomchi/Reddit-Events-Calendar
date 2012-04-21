@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html>
+@{
+    string htmlClass = "no-js";
+    if (Request.Browser.Browser == "IE")
+    {
+        if (Request.Browser.MajorVersion < 7) { htmlClass += " lt-ie9 lt-ie8 lt-ie7"; }
+        else if (Request.Browser.MajorVersion == 7) { htmlClass += " lt-ie9 lt-ie8"; }
+        else if (Request.Browser.MajorVersion == 8) { htmlClass += " lt-ie9"; }
+    }
+}<!DOCTYPE html>@*
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->*@
+<html class="@htmlClass" lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    @if (Request.Browser.Browser == "IE") {
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    }
     <title>@ViewBag.Title</title>
-    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css")" rel="stylesheet" type="text/css" />
-    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/themes/base/css")" rel="stylesheet" type="text/css" />
-    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Scripts/js")"></script>
+    @if (ViewBag.Description != null) {
+    <meta name="description" content="@ViewBag.Description">
+    }
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Artiom Chilaru">
+    <meta name="application-name" content="Reddit Events Calendar">
+    <link href="~/Content/css" rel="stylesheet" type="text/css" />
+    @* 4 JQuery UI <link href="~/Content/themes/base/css" rel="stylesheet" type="text/css" />*@
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="~/Scripts/js"></script>
+    @*
+        Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
+        More ideas for your <head> here: h5bp.com/d/head-Tips
+    *@@RenderSection("head", false)
 </head>
 <body>
-    @RenderBody()
+    @if (Request.Browser.Browser == "IE" && Request.Browser.MajorVersion < 7) {
+    <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+    }
+    <header>
+
+    </header>
+    <div role="main">
+        @RenderBody()
+    </div>
+    <footer>
+
+    </footer>
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
 </body>
 </html>

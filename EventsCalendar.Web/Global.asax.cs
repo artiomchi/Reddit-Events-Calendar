@@ -50,6 +50,7 @@ namespace EventsCalendar.Web
             RegisterRoutes(RouteTable.Routes);
 
             BundleTable.Bundles.RegisterTemplateBundles();
+            BundleTable.Bundles.Single(b => b.Path == "~/Content/css").AddFile("~/Content/Style.css");
         }
     }
 }
