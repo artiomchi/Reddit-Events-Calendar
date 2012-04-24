@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Repository",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsCalendar.Service", "EventsCalendar.Service\EventsCalendar.Service.csproj", "{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.reddit.api", "com.reddit.api\com.reddit.api.csproj", "{C9BFD1D2-F1E7-4288-A3D7-BB4583566794}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9473238E-2BC0-4ACF-AEA5-5D4D292FAD29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9BFD1D2-F1E7-4288-A3D7-BB4583566794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9BFD1D2-F1E7-4288-A3D7-BB4583566794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9BFD1D2-F1E7-4288-A3D7-BB4583566794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9BFD1D2-F1E7-4288-A3D7-BB4583566794}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF400FD4-004F-421F-BB55-2928AD91D46A}.Release|Any CPU.ActiveCfg = Release|Any CPU

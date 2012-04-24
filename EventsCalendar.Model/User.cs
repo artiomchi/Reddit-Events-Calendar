@@ -17,5 +17,6 @@
 
         public ICollection<Post> Posts { get; set; }
         public ICollection<Role> Roles { get; set; }
+        public ICollection<Note> Notes { get; set; }
     }
 }

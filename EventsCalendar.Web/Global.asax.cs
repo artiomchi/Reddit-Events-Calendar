@@ -33,9 +33,15 @@ namespace EventsCalendar.Web
             );
 
             routes.MapRoute(
+                name: "Post Details",
+                url: "details/{rid}/{title}",
+                defaults: new { controller = "Posts", action = "Details", title = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Posts", action = "Index", id = UrlParameter.Optional }
             );
         }
 
@@ -44,7 +50,8 @@ namespace EventsCalendar.Web
             AreaRegistration.RegisterAllAreas();
 
             // Use LocalDB for Entity Framework by default
-            Database.DefaultConnectionFactory = new SqlConnectionFactory("Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            Database.DefaultConnectionFactory = new SqlConnectionFactory("Data Source=(localdb)\\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
+            Database.SetInitializer<EventsCalendar.Repository.CalendarDbContext>(new EventsCalendar.Repository.CalendarDbContext.Initializer());
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);

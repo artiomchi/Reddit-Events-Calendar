@@ -49,9 +49,18 @@
   <ItemGroup>
     <Compile Include="CalendarDbContext.cs" />
     <Compile Include="ContainerRegistration.cs" />
+    <Compile Include="IPostRepository.cs" />
+    <Compile Include="OperationStatus.cs" />
+    <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedditRepository.cs" />
+    <Compile Include="RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\com.reddit.api\com.reddit.api.csproj">
+      <Project>{c9bfd1d2-f1e7-4288-a3d7-bb4583566794}</Project>
+      <Name>com.reddit.api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventsCalendar.Model\EventsCalendar.Model.csproj">
       <Project>{6b3671a0-8da7-4f98-93d9-93dc8e0e66e8}</Project>
       <Name>EventsCalendar.Model</Name>

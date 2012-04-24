@@ -11,6 +11,7 @@ namespace EventsCalendar.Repository
     {
         public static void InitializeContainer(Container container)
         {
+            container.Register<IPostRepository, PostRepository>();
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>();
         }

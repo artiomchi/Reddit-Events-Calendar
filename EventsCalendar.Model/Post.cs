@@ -1,6 +1,7 @@
 ﻿namespace EventsCalendar.Model
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Post
@@ -24,7 +25,8 @@
         public string Location { get; set; }
         public string Description { get; set; }
 
-        public User Author { get; set; }
         public int? UserID { get; set; }
+        public User Author { get; set; }
+        public ICollection<Note> Notes { get; set; }
     }
 }

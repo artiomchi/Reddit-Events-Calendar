@@ -1,0 +1,25 @@
+﻿@model IEnumerable<EventsCalendar.Model.Post>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var item in Model) {
+    <div style="font:normal x-small verdana, arial, helvetica, sans-serif;">
+        <p style="margin-bottom: 1px;font-size: medium;">
+            @if (item.Meeting.HasValue) {
+                @:[@item.Meeting.Value.ToShortDateString()]
+            } else {
+                @:[date n/a]
+            }
+            @Html.ActionLink(item.Title, "Details", new{rid=item.RID, title=System.Text.RegularExpressions.Regex.Replace(item.Title, @"[^a-zA-Z0-9]+", "_")})
+            <a href="@item.Url">(reddit)</a>
+        </p>
+        <p style="font-size: x-small; margin: 0">
+            submitted 
+            <time title="@item.Created" datetime="@item.Created.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK")">@item.Created.ToShortDateString()</time>
+            by
+            <a href="http://reddit.com/user/@item.AuthorName">@item.AuthorName</a>
+        </p>
+    </div>
+}

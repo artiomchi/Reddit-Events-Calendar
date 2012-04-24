@@ -1,0 +1,21 @@
+﻿@model EventsCalendar.Model.Post
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<h3>@Model.Title</h3>
+<p style="font-size: x-small; margin: 0">
+    submitted 
+    <time title="@Model.Created" datetime="@Model.Created.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss.fffffffK")">@Model.Created.ToShortDateString()</time>
+    by
+    <a href="http://reddit.com/user/@Model.AuthorName">@Model.AuthorName</a>
+</p>
+<p>@Model.SelfText</p>
+
+<h4>Notes:</h4>
+<ul>
+@foreach (var note in Model.Notes) {
+    <li>@note.Message</li>
+}
+</ul>
