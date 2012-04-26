@@ -8,7 +8,7 @@
         public string Message { get; set; }
         public DateTime Created { get; set; }
 
-        public User Author { get; set; }
-        public Post Post { get; set; }
+        public virtual User Author { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

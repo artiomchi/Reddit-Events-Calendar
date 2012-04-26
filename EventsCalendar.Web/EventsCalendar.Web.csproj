@@ -43,6 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.1.12097\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft3\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Client.0.23.0-draft3\lib\net40-full\DotNetOpenAuth.OAuth2.Client.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0-beta2\lib\net45\EntityFramework.dll</HintPath>
@@ -142,6 +154,9 @@
   <ItemGroup>
     <Compile Include="App_Start\SimpleInjectorMVC3.cs" />
     <Compile Include="App_Start\SimpleInjectorMVC3Extensions.cs" />
+    <Compile Include="Areas\Admin\Controllers\CalendarController.cs" />
+    <Compile Include="Areas\Admin\Models\Calendar\IndexModel.cs" />
+    <Compile Include="Areas\Admin\OwnerAreaRegistration.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,7 +181,9 @@
     <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -180,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -193,12 +211,33 @@
       <Project>{0d990e5a-3dd2-44ee-bb13-025689fe0f06}</Project>
       <Name>EventsCalendar.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GoogleApis.Authentication.OAuth2\GoogleApis.Authentication.OAuth2.csproj">
+      <Project>{76106493-68ef-4e44-af2e-971abf29b300}</Project>
+      <Name>GoogleApis.Authentication.OAuth2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoogleApis.Calendar\GoogleApis.Calendar.csproj">
+      <Project>{3b6fa0c0-4665-41c6-aab2-42feecd4d7ec}</Project>
+      <Name>GoogleApis.Calendar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoogleApis\GoogleApis.csproj">
+      <Project>{cbb5e638-f8d5-48db-93be-5a7cdd7ed107}</Project>
+      <Name>GoogleApis</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Posts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Posts\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Calendar\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

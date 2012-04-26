@@ -30,11 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.1.12097\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth2">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth2.Core.0.23.0-draft3\lib\net40-full\DotNetOpenAuth.OAuth2.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0-beta2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
@@ -44,14 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalendarAuthorization.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="Setting.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoogleApis.Calendar\GoogleApis.Calendar.csproj">
+      <Project>{3b6fa0c0-4665-41c6-aab2-42feecd4d7ec}</Project>
+      <Name>GoogleApis.Calendar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoogleApis\GoogleApis.csproj">
+      <Project>{cbb5e638-f8d5-48db-93be-5a7cdd7ed107}</Project>
+      <Name>GoogleApis</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

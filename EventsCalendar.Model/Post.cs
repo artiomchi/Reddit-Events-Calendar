@@ -25,8 +25,8 @@
         public string Location { get; set; }
         public string Description { get; set; }
 
-        public int? UserID { get; set; }
-        public User Author { get; set; }
-        public ICollection<Note> Notes { get; set; }
+        public int? AuthorID { get; set; }
+        public virtual User Author { get; set; }
+        public virtual ICollection<Note> Notes { get; set; }
     }
 }
