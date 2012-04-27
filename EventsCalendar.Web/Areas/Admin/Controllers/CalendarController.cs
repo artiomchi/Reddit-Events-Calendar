@@ -16,7 +16,7 @@ using Google.Apis.Util;
 
 namespace EventsCalendar.Web.Areas.Admin.Controllers
 {
-    public class CalendarController : Controller
+    public partial class CalendarController : Controller
     {
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
@@ -62,7 +62,7 @@ namespace EventsCalendar.Web.Areas.Admin.Controllers
 
         //
         // GET: /Admin/Calendar
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var model = new IndexModel
             {
@@ -86,20 +86,20 @@ namespace EventsCalendar.Web.Areas.Admin.Controllers
 
         //
         // GET: /Admin/Calendar/Authorize
-        public ActionResult Authorize(String code)
+        public virtual ActionResult Authorize(String code)
         {
             if (!String.IsNullOrEmpty(code))
             {
                 var oldState = _authenticator.State;
                 _authenticator.LoadAccessToken();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(Actions.Index());
         }
 
         //
         // GET: /Admin/Calendar/Authorize
         [HttpPost]
-        public ActionResult Authorize()
+        public virtual ActionResult Authorize()
         {
             _userRepository.ResetCalendarAuthorization(SettingsRepository.Reddit.BotLogin);
             string scope = CalendarService.Scopes.Calendar.GetStringValue();

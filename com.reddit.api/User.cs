@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
@@ -131,7 +131,7 @@ namespace com.reddit.api
             {
                 Url = "https://ssl.reddit.com/api/login/" + username,
                 Method = "POST",
-                Content = "api_type=json&user=" + username + "&passwd=" + password
+                Content = "api_type=json&user=" + username + "&passwd=" + HttpUtility.UrlEncode(password)
             };
 
             // get the modhash 
@@ -157,6 +157,8 @@ namespace com.reddit.api
             // {"json": {"errors": [["WRONG_PASSWORD", "invalid password"]]}}
 
             var o = JObject.Parse(json);
+            if (o["json"]["errors"].HasValues)
+                throw new RedditException(json);
 
             // Create a session which can be used on further requests
             return new Session

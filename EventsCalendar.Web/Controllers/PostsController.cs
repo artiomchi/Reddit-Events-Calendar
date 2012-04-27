@@ -7,7 +7,7 @@ using EventsCalendar.Repository;
 
 namespace EventsCalendar.Web.Controllers
 {
-    public class PostsController : Controller
+    public partial class PostsController : Controller
     {
         IPostRepository _postRepository;
 
@@ -18,7 +18,7 @@ namespace EventsCalendar.Web.Controllers
 
         //
         // GET: /
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var posts = _postRepository.GetTopPosts();
             return View(posts);
@@ -26,7 +26,7 @@ namespace EventsCalendar.Web.Controllers
 
         //
         // GET: /details/sfp48/{title}
-        public ActionResult Details(string rid)
+        public virtual ActionResult Details(string rid)
         {
             var post = _postRepository.GetPost(rid);
             return View(post);

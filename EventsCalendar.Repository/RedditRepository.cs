@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 using EventsCalendar.Model;
+    using Newtonsoft.Json.Linq;
 
     public class RedditRepository
     {
@@ -41,5 +42,31 @@ using EventsCalendar.Model;
                 };
                 return post;
             };
+
+        public OperationStatus TestCredentials(string login, string password)
+        {
+            try
+            {
+                var session = com.reddit.api.User.Login(login, password);
+                return new OperationStatus { Status = true };
+            }
+            catch (com.reddit.api.RedditException ex)
+            {
+                var obj = JObject.Parse(ex.Message);
+                var error = "Unknown error";
+
+                var json = obj["json"];
+                if (json != null)
+                {
+                    var errors = json["errors"];
+                    if (errors != null && errors.HasValues)
+                    {
+                        error = errors[0][1].ToString();
+                    }
+                }
+
+                return new OperationStatus { Status = false, Message = error };
+            }
+        }
     }
 }

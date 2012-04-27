@@ -1,0 +1,15 @@
+﻿@model EventsCalendar.Web.Areas.Admin.Models.Reddit.IndexModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>Reddit login: @Model.BotLogin</p>
+<p>Reddit pass: @Model.BotPassword</p>
+
+@Ajax.ActionLink("test credentials", MVC.Admin.Reddit.TestCredentials(), new AjaxOptions {
+    HttpMethod = "POST",
+    OnSuccess = "if (data.Success) { alert('Credentials are awesome!'); } else { alert(data.Message); }",
+    OnFailure = "alert('damn.. failed -_-')",
+})
+

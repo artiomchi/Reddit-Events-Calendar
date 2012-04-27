@@ -8,13 +8,13 @@
 {
     <h3><em>No Google API token present!</em></h3>
     <em>Without a token, the bot will not be able to update the calendar</em>
-    using (Html.BeginForm("Authorize", "Calendar", FormMethod.Post)){<button type="submit">Request authorization token</button>}
+    using (Html.BeginForm(MVC.Admin.Calendar.Authorize(), FormMethod.Post)){<button type="submit">Request authorization token</button>}
 }
 @if (Model.TokenInvalid)
 {
     <h3><em>The current token is invalid</em></h3>
     <em>Seems like the currently stored token has expired, or was revoked</em>
-    using (Html.BeginForm("Authorize", "Calendar", FormMethod.Post)){<button type="submit">Request authorization token</button>}
+    using (Html.BeginForm(MVC.Admin.Calendar.Authorize(), FormMethod.Post)){<button type="submit">Request authorization token</button>}
 }
 @if (Model.Calendars != null && Model.Calendars.Items != null)
 {

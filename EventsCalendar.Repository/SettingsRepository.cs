@@ -102,7 +102,7 @@ namespace EventsCalendar.Repository
             return defaultValue;
         }
 
-        public void SetValue(string name, Object valueObj, bool dirtyWrite = false)
+        public static void SetValue(string name, Object valueObj, bool dirtyWrite = false)
         {
             var value = Convert.ToString(valueObj);
             using (var db = new CalendarDbContext())
@@ -114,7 +114,7 @@ namespace EventsCalendar.Repository
                     db.SaveChanges();
                 }
 
-                if (prop.Value != this[name] && prop.Value != value && !dirtyWrite)
+                if (prop.Value != Default[name] && prop.Value != value && !dirtyWrite)
                 {
                     UpdateSettings();
                     throw new ApplicationException("Value has changed to something else, while you didn't know!");
@@ -127,8 +127,8 @@ namespace EventsCalendar.Repository
 
         public static class Reddit
         {
-            public static string BotLogin { get { return Default["Reddit.BotLogin"]; } }
-            public static string BotPassword { get { return Default["Reddit.BotPassword"]; } }
+            public static string BotLogin { get { return Default["Reddit.BotLogin"]; } set { SetValue("Reddit.BotLogin", value); } }
+            public static string BotPassword { get { return Default["Reddit.BotPassword"]; } set { SetValue("Reddit.BotPassword", value); } }
         }
 
         public static class GoogleAPI
